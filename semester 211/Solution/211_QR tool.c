@@ -282,8 +282,8 @@ int main() {
     int menu_code;
     scanf("%d",&menu_code);
     if(menu_code == 1) {
-        char S[68] = "0002010102108162021KHB012100002512112DangVu";
-        //scanf("%s",S);
+        char S[68]; //sample example: "0002010102108162021KHB012100002512112DangVu";
+        scanf("%s",S);
         int k = detect(S);
         if(k == 1) printf("Ngan hang: BKB\n");
         if(k == 2) printf("Ngan hang: KHB\n");
@@ -293,10 +293,10 @@ int main() {
         printf("Thoi diem tao QR: %s",split_Time(k,S));
     }
     else if(menu_code == 2) {
-        char S0[4] = "BKB";
-        char S[68] = "0002010102108162021KHB02100002512112DangVu";
-        //  scanf("%s",S0); //destination
-        //scanf("%s",S); // source
+        char S0[4];  //sample example: "BKB";
+        char S[68]; //sample example: "0002010102108162021KHB02100002512112DangVu";
+        scanf("%s",S0); //destination
+        scanf("%s",S); // source
         if(detect(S0) == 0) printf("Ngan hang chuyen den khong hop le");
         else {
             int k = detect(S);
@@ -317,12 +317,11 @@ int main() {
         }
     }
     else {
-        char S[68] = "00020101021BKB0882003729910DangVanThanh18072020";
-        int a,b,c;
+        char S[68]; //sample example: "00020101021BKB0882003729910DangVanThanh18072020";
+        int a,b,c; //sample example: a = 1, b = 1, c = 1;
         int k = detect(S);
-//        scanf("%d%d%d",&a,&b,&c);
-//        scanf("%s",S);
-        a = 1, b = 1, c = 1;
+        scanf("%d%d%d",&a,&b,&c);
+        scanf("%s",S);
         if((a != 0 && a != 1 && a!= 2) || (b != 0 && b != 1) | (c != 0 && c != 1)) printf("Thong so nhap vao khong hop le");
         else {
             char *S1 = encrypt_Owner(a,split_Owner(k,S));
